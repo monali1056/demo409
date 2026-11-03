@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "5000:5000"
+    depends_on:
+      - users-service
+      - products-service
+
+  users-service:
+    build: ./users-service
+    ports:
+      - "5001:5001"
+
+  products-service:
+    build: ./products-service
+    ports:
+      - "5002:5002"
